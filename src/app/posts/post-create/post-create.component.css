@@ -1,0 +1,17 @@
+select {
+  text-align: center;
+  text-align-last: center;
+  /* webkit*/
+}
+option {
+  text-align: left;
+  /* reset to left*/
+}
+.red {
+  border:1px solid red;
+}
+
+input {
+  padding:10px;
+  outline:none;
+}

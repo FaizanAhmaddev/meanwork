@@ -1,0 +1,119 @@
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+    </style>
+
+    <mat-card style="margin:2em;">
+    <body>
+    <div class="content">
+      <!-- Page content -->
+
+
+
+  <div class="container">
+      <div class="row">
+<h2 >Choose First Number</h2>
+<mat-form-field>
+
+  <mat-select placeholder = "Number" [(ngModel)] = "selectedValue1" name= "food">
+      <mat-option> None </mat-option>
+
+    <mat-option *ngFor = "let state of states" [value] = "state" > {{state}}</mat-option>
+
+
+</mat-select>
+
+</mat-form-field>
+
+
+<h2 >Choose Second Number</h2>
+<mat-form-field>
+
+  <mat-select placeholder = "Number" [(ngModel)] = "selectedValue2" name= "food">
+      <mat-option> None </mat-option>
+
+    <mat-option *ngFor = "let state of states" [value] = "state" > {{state}}</mat-option>
+
+
+</mat-select>
+</mat-form-field>
+
+<form #postForm="ngForm">
+    <div ng-app="" class="container">
+        <div>
+            <h2>Generate First string </h2>
+            <h4 > Characters Limit = {{selectedValue1}} </h4>
+
+            <textarea rows="3" class="form-control" [(ngModel)]="inputmsg1" [maxLength]= "selectedValue1" name="inputmsg11" required  ></textarea>
+            <p> Your text is is: {{inputmsg1}} </p>
+         </div>
+    </div>
+
+    <div ng-app="" class="container">
+        <div >
+            <h2>Generate Second string </h2>
+            <h4 >Characters Limit = {{selectedValue2}} </h4>
+            <textarea rows="3" class="form-control" [(ngModel)]="inputmsg2" [maxLength]= "selectedValue2" name="inputmsg22" required></textarea>
+         </div>
+    </div>
+
+
+    <button mat-raised-button color="accent" (click) = "LCS( inputmsg1 , inputmsg2 ) " type="submit"> Find </button>
+<!--
+    <button mat-raised-button color="accent" (click) = "onAddPost() " type="submit"> Save </button> -->
+
+    <div >
+        <h2>Longest Common Subsequence </h2>
+
+        <input id="result" type="text" [(ngModel)]="result" name="resultt">
+        <p *ngIf="loading && result"> Your text is is: {{result}} </p>
+
+        <p *ngIf="loading && !result">Could not find longest common substring from inputs.</p>
+    </div>
+</form>
+
+
+<!--
+    <section class="insert">
+        <h3>Insert Data</h3>
+        <form action="/insert" method="post">
+            <div class="input">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="input">
+                <label for="content">Content</label>
+                <input type="text" id="content" name="content">
+            </div>
+            <div class="input">
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <button type="submit">INSERT</button>
+        </form>
+    </section>
+
+    <section class="get">
+      <h3>Get Data</h3>
+      <a href="/get-data">LOAD DATA</a>
+      <div>
+              <article class="item">
+                  <div>String1: {{ this.inputmsg1 }}</div>
+                  <div>String2: {{ this.inputmsg2 }}</div>
+                  <div>Result: {{ this.result }}</div>
+              </article>
+      </div>
+  </section> -->
+</div>
+</div>
+
+
+
+</div>
+
+
+</body>
+
+</mat-card>

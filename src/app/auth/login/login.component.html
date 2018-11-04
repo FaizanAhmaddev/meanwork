@@ -1,0 +1,32 @@
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+    </style>
+    <body>
+
+    <div class="content">
+      <!-- Page content -->
+
+
+<mat-card>
+    <h2 class="h4 mb-4">Sign in</h2>
+
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+
+    </mat-form-field>
+    <button mat-raised-button class="btn btn-info btn-block my-4" color="accent" type="submit">Sign in</button>
+  </form>
+</mat-card>
+
+</div>>
+    </body>
