@@ -2,8 +2,8 @@ require('dotenv').config()
 
 const express = require("express");
 const path = require("path");
-const userRoutes = require("./routes/user");
-const postsRoutes = require("./routes/post");
+const userRoutes = require("./backend/routes/user");
+const postsRoutes = require("./backend/routes/post");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -36,13 +36,13 @@ var corsOptions = {
 }
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, './../dist')));
+app.use(express.static(path.join(__dirname, './dist')));
 
 app.use("/api/post", postsRoutes);
 app.use("/api/user", userRoutes);
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './../dist/index.html'));
+  res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 const port = process.env.PORT || '3000';
