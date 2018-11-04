@@ -7,6 +7,8 @@ const postsRoutes = require("./routes/post");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
+const http = require('http');
+
 const cors = require('cors');
 
 const app = express();
@@ -43,6 +45,10 @@ app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, './../dist/index.html'));
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server listening at port ${process.env.PORT}`);
+const port = process.env.PORT || '3000';
+app.set('port', port);
+
+const server = http.createServer(app);
+server.listen(port, () => {
+  console.log(`Server listening at port ${port}`);
 });
