@@ -12,6 +12,10 @@
     "start:server": "nodemon server.js",
     "postinstall": "ng build --prod"
   },
+  "engines": {
+    "node": "8.11.4",
+    "npm": "6.4.1"
+  },
   "private": true,
   "dependencies": {
     "@angular/cli": "~6.2.2",
