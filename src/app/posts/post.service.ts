@@ -15,7 +15,7 @@ constructor(private http: HttpClient) {}
       email: JSON.parse(localStorage.getItem('currentUser')).user.email 
     }
 
-    return this.http.get('http://localhost:3000/api/post/get', { params });
+    return this.http.get('/api/post/get', { params });
   }
 
   getPostUpdateListener() {
@@ -31,7 +31,7 @@ constructor(private http: HttpClient) {}
       result: result,
     };
     console.log(post)
-    return this.http.post('http://localhost:3000/api/post/create', post)
+    return this.http.post('/api/post/create', post)
     .subscribe(response => {
         console.log(response)
       },
@@ -47,7 +47,7 @@ constructor(private http: HttpClient) {}
 }
 // createUser(email: string, password: string) {
 //   const authData: AuthData = {email: email, password: password};
-//   this.http.post('http://localhost:3000/api/user/signup', authData)
+//   this.http.post('/api/user/signup', authData)
 //     .subscribe(response => {
 //       console.log(response);
 //     });

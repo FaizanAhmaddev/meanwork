@@ -33,7 +33,7 @@ export class AuthService {
   }
   createUser(email: string, password: string) {
     const authData: AuthData = { email: email, password: password };
-    this.http.post('http://localhost:3000/api/user/signup', authData)
+    this.http.post('/api/user/signup', authData)
       .subscribe(response => {
         this.router.navigate(['/login']);
       });
@@ -42,7 +42,7 @@ export class AuthService {
   // lcs(inputmsg1: string, inputmsg2: string, result: string) {
 
   // const lcsData: LcsData = { inputmsg1: inputmsg1 , inputmsg2: inputmsg2, result: result};
-  // this.http.post('http://localhost:3000/api/user/signup', lcsData)
+  // this.http.post('/api/user/signup', lcsData)
   //       .subscribe(response => {
   //         console.log(response);
   //       });
@@ -50,7 +50,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     const authData: AuthData = { email: email, password: password };
-    this.http.post<{ token: string, expiresIn: number }>('http://localhost:3000/api/user/login', authData)
+    this.http.post<{ token: string, expiresIn: number }>('/api/user/login', authData)
       .subscribe(response => {
         const token = response.token;
         this.token = token;

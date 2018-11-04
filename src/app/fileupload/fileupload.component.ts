@@ -3,7 +3,7 @@ import { FileSelectDirective, FileUploader} from 'ng2-file-upload';
 import { FileService } from './file.service';
 import {saveAs} from 'file-saver';
 
-const uri = 'http://localhost:3000/file/upload';
+const uri = '/file/upload';
 
 @Component ( {
    // selector: 'my-app',
